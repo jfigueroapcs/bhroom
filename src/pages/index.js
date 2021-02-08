@@ -23,6 +23,15 @@ export default () => {
                 content
                 butto
                 slogan
+                parallax {
+                  localFile{
+                    childImageSharp {
+                      fluid (maxWidth: 1920, maxHeight: 1000){
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
+                  }
+                }
                 banners {
                   texts {
                     value
@@ -45,6 +54,14 @@ export default () => {
                   label
                 }
                 status {
+                  value
+                  label
+                }
+                bathroom {
+                  value
+                  label
+                }
+                bedroom {
                   value
                   label
                 }
@@ -79,6 +96,7 @@ export default () => {
             node {
               id
               title
+              slug
               featured_media {
                 localFile {
                   childImageSharp {
@@ -127,6 +145,7 @@ export default () => {
             node {
               id
               title
+              slug
               featured_media {
                 localFile {
                   childImageSharp {
@@ -172,8 +191,8 @@ export default () => {
         }
       }
     `)
-    const { title, content,  butto } = data.allWordpressAcfOptions.edges[0].node.options
-    const project = { title, content,  butto }
+    const { title, content,  butto, parallax } = data.allWordpressAcfOptions.edges[0].node.options
+    const project = { title, content,  butto, parallax }
     return(
         <>
             <Layout>

@@ -60,16 +60,16 @@ export default ({ LogoFooter }) => {
 					<div className="col-md-6">
 						<ul className="social-icons">
 							<li>
-								<a href="#"><i className="fa fa-facebook"></i></a>
+								<Link to="#"><i className="fa fa-facebook"></i></Link>
 							</li>
 							<li>
-								<a href="#"><i className="fa fa-twitter"></i></a>
+								<Link to="#"><i className="fa fa-twitter"></i></Link>
 							</li>
 							<li>
-								<a href="#"><i className="fa fa-google-plus"></i></a>
+								<Link to="#"><i className="fa fa-google-plus"></i></Link>
 							</li>
 							<li>
-								<a href="#"><i className="fa fa-linkedin"></i></a>
+								<Link to="#"><i className="fa fa-linkedin"></i></Link>
 							</li>
 						</ul>
 					</div>

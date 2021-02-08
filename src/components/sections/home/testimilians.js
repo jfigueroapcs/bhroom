@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import React from "react"
 import Image from "../../image"
 
@@ -46,7 +47,6 @@ const Figure = ({t}) => {
 }
 
 export default ({ testimonials }) =>{
-    console.log(testimonials)
   return (
     <section id="testimonial">
         <div className="section-detail hidden-xs">
@@ -63,8 +63,8 @@ export default ({ testimonials }) =>{
                     )}
                   </div>
                   <div id="feedback-nav" className="nav-box">
-                    <a href="#" className="previous"></a>
-                    <a href="#" className="next"></a>
+                    <Link to="#" className="previous"></Link>
+                    <Link to="#" className="next"></Link>
                   </div>
                 </div>
               </div>

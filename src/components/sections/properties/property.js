@@ -5,19 +5,19 @@ import Image from "../../image"
 export default ({ pr, cls, col }) => {
     return(
       <>
-        <div className={col}>
+        <div className={`${col} ${pr.node.acf.cities[0].value}`}>
           <div className={`box-ads-juan ${cls}`}>
-			<Link
-				className="hover-effect image image-fill"
-				to="/">
-				<span className="cover"></span>
-				<Image
-					data={pr.node.featured_media.localFile}
-					// alt="Gatsby Docs are awesome"
-					clas="img-responsive"
-				/>
-				<h3 className="title">{pr.node.title}</h3>
-			</Link>
+            <Link
+              className="hover-effect image image-fill"
+              to="/">
+              <span className="cover"></span>
+              <Image
+                data={pr.node.featured_media.localFile}
+                // alt="Gatsby Docs are awesome"
+                clas="img-responsive"
+              />
+              <h3 className="title">{pr.node.title}</h3>
+            </Link>
             <span className="price">
               {/* $ 536.500,00 */}
             </span>

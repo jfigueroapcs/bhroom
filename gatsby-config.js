@@ -12,8 +12,8 @@ module.exports = {
     author: `Juan C Figueroa M`,
     email: `jfigueroaubv@gmail.com`,
     instagram: `jfigueroapcs`,
-    url: `http://localhost:9000/`,
-    siteUrl: `http://localhost:9000/`,
+    url: `http://localhost:8000/`,
+    siteUrl: `http://localhost:8000/`,
     image: `src/images/mini-logo.png`, // Path to your image you placed in the 'static' folder
     twitterUsername: `@bhoomimantra`,
   },

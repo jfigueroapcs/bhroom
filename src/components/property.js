@@ -1,26 +1,24 @@
+import { Link } from "gatsby"
 import React from "react"
 import Image from "./image"
 
 export default ({ pr, cls, col }) => {
+  const slug = pr.node?.slug ? pr.node.slug : ''
     return(
       <>
         <div className={col}>
           <div className={`box-ads-juan ${cls}`}>
-            <a
+            <Link
               className="hover-effect image image-fill"
-              href="property-detail.html">
+              to={`/${slug}`}>
               <span className="cover"></span>
               <Image
                 data={pr.node.featured_media.localFile}
                 // alt="Gatsby Docs are awesome"
                 clas="img-responsive"
               />
-              {/* <img
-                alt="Sample images"
-                className="img-responsive"
-                src={pr.node.featured_media.source_url}
-              /> */}
-              <h3 className="title">{pr.node.title}</h3> </a>
+                <h3 className="title">{pr.node.title}</h3>
+              </Link>
             <span className="price">
               {/* $ 536.500,00 */}
             </span>
@@ -38,9 +36,9 @@ export default ({ pr, cls, col }) => {
               )}
             </dl>
             <div className="footer">
-              <a className="btn btn-reverse" href="property-detail.html"
-                >View details</a
-              >
+              <Link className="btn btn-reverse" to={`/${slug}`}>
+                  View details
+              </Link>
             </div>
           </div>
         </div>
