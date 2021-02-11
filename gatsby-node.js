@@ -128,27 +128,109 @@ const path = require(`path`)
 
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
-    const result = await graphql(`
-        query MyQuery {
-            allWordpressWpProperties {
+    const agents = await graphql(`
+        query Agents {
+            allWordpressWpAgent {
                 edges {
-                    node {
-                    id
+                  node {
                     slug
-                    }
+                  }
                 }
+              }
+        }
+    `)
+    const properties = await graphql(`
+    query Properties {
+        allWordpressWpProperties {
+          edges {
+            node {
+              id
+              slug
+              title
+              content
+              acf {
+                details
+                cities {
+                  value
+                  label
+                }
+                bedroom {
+                  value
+                  label
+                }
+                bathroom {
+                  value
+                  label
+                }
+                type {
+                  value
+                  label
+                }
+                status {
+                  value
+                  label
+                }
+                purpose {
+                  value
+                  label
+                }
+                characteristics_properties {
+                  type
+                  value
+                }
+                agent_name {
+                  post_name
+                }
+                gallery {
+                  localFile {
+                    url
+                  }
+                }
+              }
+              featured_media {
+                localFile {
+                    url
+                  childImageSharp {
+                    fluid {
+                      aspectRatio
+                      base64
+                      sizes
+                      src
+                      srcSet
+                    }
+                  }
+                }
+              }
             }
-        }      
+          }
+        }
+      }
     `)
 
-    result.data.allWordpressWpProperties.edges.forEach(({ node }) => {
+
+    agents.data.allWordpressWpAgent.edges.forEach(({ node }) => {
         createPage({
-            path: node.slug,
+            path: `/agent/${node.slug}`,
+            component: path.resolve(`./src/templates/single-agent.js`),
+            context: {
+                // Data passed to context is available
+                // in page queries as GraphQL variables.
+                slug: node.slug,
+                // data:node
+            },
+        })
+    })
+    
+    properties.data.allWordpressWpProperties.edges.forEach(({ node }) => {
+        createPage({
+            path: `/property/${node.slug}`,
             component: path.resolve(`./src/templates/single-property.js`),
             context: {
                 // Data passed to context is available
                 // in page queries as GraphQL variables.
                 slug: node.slug,
+                agent: node.acf.agent_name.post_name,
+                data:node
             },
         })
     })

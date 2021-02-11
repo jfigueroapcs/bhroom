@@ -7,8 +7,8 @@ import {
 // import { css } from "@emotion/react"
 // import * as queryString from "query-string"
 
- const SearchBox = ({ ciudades, purposes, types, statuses, bathrooms, bedrooms, defaults, props }) => {
-  
+ const SearchBox = ({ ciudades, purposes, types, statuses, bathrooms, bedrooms, defaults, d, props }) => {
+  // console.log(defaults)
 
   const customStyles = useMemo(
     () => ({
@@ -95,10 +95,11 @@ import {
   
   const [bathroom, setBathroom] = useState()
   const [bedroom, setBedroom] = useState() 
-  const [cities, setCities] = useState() 
-  const [purpose, setPurpose] = useState() 
-  const [type, setType] = useState() 
-  const [status, setStatus] = useState() 
+  const [cities, setCities] = useState(defaults && defaults?.cities ? defaults.cities[0].value : '') 
+  const [purpose, setPurpose] = useState(defaults && defaults?.purpose ? defaults.purpose[0].value : '') 
+  const [type, setType] = useState(defaults && defaults?.type ? defaults.type[0].value : '') 
+  const [status, setStatus] = useState(defaults && defaults?.status ? defaults.status[0].value : '') 
+  
   
   const handleInputChangeCity = ec => { setCities(ec.value) }
 
@@ -117,6 +118,11 @@ import {
     return text
   }
   // const go = `/properties/${convertToSlug(cities)}/${convertToSlug(purpose)}/${convertToSlug(type)}/${convertToSlug(status)}/${bathroom}/${bedroom}/`
+  // if(defaults?.cities){
+  //   setCities(defaults.cities[0].value)
+  // }
+
+
   const c = cities ? `/properties?city=${convertToSlug(cities)}` : `/properties?`
   const p = purpose ? `${c}&purpose=${convertToSlug(purpose)}` : c
   const t = type ? `${p}&type=${convertToSlug(type)}` : p
@@ -130,39 +136,39 @@ import {
     <>
 		<div className="right-box">
 			<div className="row">
-				<div className="col-md-12 space-div">
+				<div className="col-md-12">
 					<Select 
 						options={_cities}
-						defaultValue={ defaults ? defaults.cities[0]: { value: "all", label: "-- All Cities --" } }
+						defaultValue={ defaults && defaults?.cities ? defaults.cities[0]: { value: "all", label: "-- All Cities --" } }
 						onChange={handleInputChangeCity}
 						styles={customStyles}
                   	/>
 				</div>
-				<div className="col-md-12 space-div">
+				<div className="col-md-12">
 					<Select 
 						options={_purpose}
-						defaultValue={defaults ? defaults.purpose[0]: { value: "any", label: "-- Any Purpose --"}}
+						defaultValue={defaults && defaults?.purpose ? defaults.purpose[0] : { value: "any", label: "-- Any Purpose --"}}
 						onChange={handleInputChangePurpose}
 						styles={customStyles}
 					/>
 				</div>
-				<div className="col-md-12 space-div">
+				<div className="col-md-12">
 					<Select 
 						options={_type}
-						defaultValue={defaults ? defaults.type[0]: { value: "any", label: "-- Any Type --" }}
+						defaultValue={defaults && defaults?.type ? defaults.type[0]: { value: "any", label: "-- Any Type --" }}
 						onChange={handleInputChangeType}
 						styles={customStyles}
 					/>
 				</div>
-				<div className="col-md-12 space-div">
+				<div className="col-md-12">
 					<Select 
 						options={_status}
-						defaultValue={defaults ? defaults.status[0]: { value: "any", label: "-- Any Type --" }}
+						defaultValue={defaults && defaults?.status ? defaults.status[0]: { value: "any", label: "-- Any Type --" }}
 						onChange={handleInputChangeStatus}
 						styles={customStylesB}
 					/>
 				</div>
-				<div className="col-md-12 space-div">
+				<div className="col-md-12">
 					<Select 
 						options={_bathroom}
 						defaultValue={ { value: "---", label: "Select Bathroom" }}
@@ -170,7 +176,7 @@ import {
 						styles={customStylesB}
 					/>
 				</div>
-				<div className="col-md-12 space-div">
+				<div className="col-md-12">
 				<Select 
             options={_bedroom}
             defaultValue={{ value: "---", label: "Select Bedroom" }}
@@ -178,7 +184,7 @@ import {
             styles={customStylesB}
           />
 				</div>
-				<div className="col-md-12 space-div">
+				<div className="col-md-12">
 					<Link to={go} className="btn btn-default search-button">Search</Link>
 					{/* <button type="button" className="btn btn-default search-button">
 					SEARCH NOW

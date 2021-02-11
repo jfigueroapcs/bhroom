@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery, Link } from "gatsby"
-import Image from "./image"
+import Img from "gatsby-image"
 import "../styles/template/navbar.css"
 
 export default () => {
@@ -44,14 +44,15 @@ export default () => {
             <div className="container hidden-xs" id="menu-nav">
                 <div className="logo">
                     <Link to="/" id="logo-header" style={{width: 209, display: 'block'}}>
-                    <Image data={Logo.Logo} clas="" />
+                    {/* <Image  data={Logo.Logo} clas="" /> */}
+                    <Img fluid={Logo.Logo.childImageSharp.fluid} loading={`auto`} />
                     </Link>
                 </div>
                 <nav id="navigation">
                     <ul>
-                    <li><Link to="/">About</Link></li>
+                    <li><Link to="/about-us">About</Link></li>
                     <li><Link to="/properties">Properties</Link></li>
-                    <li><Link to="/">Agents</Link></li>
+                    <li><Link to="/agents">Agents</Link></li>
                     <li><Link to="/">FAQ</Link></li>
                     <li><Link to="/">Contact</Link></li> 
                     </ul>

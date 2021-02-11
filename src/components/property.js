@@ -10,7 +10,7 @@ export default ({ pr, cls, col }) => {
           <div className={`box-ads-juan ${cls}`}>
             <Link
               className="hover-effect image image-fill"
-              to={`/${slug}`}>
+              to={`/property/${slug}`}>
               <span className="cover"></span>
               <Image
                 data={pr.node.featured_media.localFile}
@@ -36,7 +36,7 @@ export default ({ pr, cls, col }) => {
               )}
             </dl>
             <div className="footer">
-              <Link className="btn btn-reverse" to={`/${slug}`}>
+              <Link className="btn btn-reverse" to={`/property/${slug}`}>
                   View details
               </Link>
             </div>
