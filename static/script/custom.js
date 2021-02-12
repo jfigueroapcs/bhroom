@@ -13,7 +13,11 @@
 		var $menuHeight = $('#menu-nav').height();
 		// Fixed
 		$(this).scrollTop() > 170 ? $headerFixed.css({'top': -($headerHeight-$menuHeight)+'px'}) 
-			                      : $headerFixed.css({'top': '0px'}) ;
+		: $headerFixed.css({'top': '0px'}) ;
+		
+		// menu acordeon
+		var $blockMenuFixed = $('#block-menu');
+		$(this).scrollTop() > 400 ? $blockMenuFixed.addClass('affix') : $blockMenuFixed.removeClass('affix')
     });
 
 

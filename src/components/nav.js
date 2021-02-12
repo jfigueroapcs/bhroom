@@ -53,7 +53,7 @@ export default () => {
                     <li><Link to="/about-us">About</Link></li>
                     <li><Link to="/properties">Properties</Link></li>
                     <li><Link to="/agents">Agents</Link></li>
-                    <li><Link to="/">FAQ</Link></li>
+                    <li><Link to="/faq">FAQ</Link></li>
                     <li><Link to="/">Contact</Link></li> 
                     </ul>
                 </nav>

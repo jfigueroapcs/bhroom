@@ -414,7 +414,7 @@ top: auto;
 position: relative !important;
 }
 .block-menu.affix {
-top: 80px;
+top: 100px;
 position: fixed !important;
 bottom: auto;
 }
