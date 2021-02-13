@@ -23,20 +23,33 @@ export default () => {
                     <div className="row">
                     <div className="col-md-6">
                         <a id="mobile-menu-button" href="#mobile-menu" className="visible-xs">
-                        <i className="fa fa-bars"></i>
+                          <i className="fa fa-bars"></i>
                         </a>
-                        <a className="hidden-xs" href="call:1-800-555-1234">
+                        <Link 
+                          className="hidden-xs" 
+                          // to="call:1-800-555-1234"
+                          to="#"
+                          >
                         <i className="icon fa fa-phone"></i> (011)-8800-555
-                        </a>
+                        </Link>
                         <Link
-                        className="hidden-xs"
-                        data-section="modal-contact"
-                        data-target="#modal-contact"
-                        data-toggle="modal"
-                        to="#"
+                          className="hidden-xs"
+                          data-section="modal-contact"
+                          data-target="#modal-contact"
+                          data-toggle="modal"
+                          to="#"
                         >
                             <i className="icon fa fa-envelope-o"></i> Info
-                            </Link>
+                        </Link>
+                        {/* <Link
+                          className="hidden-xs"
+                          data-section="modal-contact"
+                          data-target="#modal-contact"
+                          data-toggle="modal"
+                          to="/agent/diane-hayes"
+                        >
+                            <i className="icon fa fa-envelope-o"></i> Diane
+                        </Link> */}
                     </div>
                     </div>
                 </div>
@@ -50,14 +63,27 @@ export default () => {
                 </div>
                 <nav id="navigation">
                     <ul>
-                    <li><Link to="/about-us">About</Link></li>
-                    <li><Link to="/properties">Properties</Link></li>
-                    <li><Link to="/agents">Agents</Link></li>
-                    <li><Link to="/faq">FAQ</Link></li>
-                    <li><Link to="/">Contact</Link></li> 
+                      <li><Link to="/about-us">About</Link></li>
+                      <li><Link to="/properties">Properties</Link></li>
+                      <li><Link to="/agents">Agents</Link></li>
+                      <li><Link to="/faq">FAQ</Link></li>
+                      <li><Link to="/">Contact</Link></li> 
                     </ul>
                 </nav>
             </div>
+            
+          <Link to="#" className="fixed-button top">
+            <i className="fa fa-chevron-up"></i>
+          </Link>
+          <Link
+            to="#"
+            className="hidden-xs fixed-button email"
+            data-toggle="modal"
+            data-target="#modal-contact"
+            data-section="modal-contact"
+          >
+            <i className="fa fa-envelope-o"></i>
+          </Link>
       </header>
     )
 }

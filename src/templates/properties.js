@@ -29,7 +29,7 @@ export default ({ data }) => {
 						<div className="container">
 							<ol className="breadcrumb">
 							<li>
-								<a href="#"><i className="fa fa-home"></i></a>
+								<Link top="#"><i className="fa fa-home"></i></Link>
 							</li>
 							<li>Properties</li>
 							{ 
@@ -100,6 +100,7 @@ export default ({ data }) => {
 				<script src={path.resolve("./script/vendor/images-fill/imagesloaded.min.js")} />
 				<script src={path.resolve("./script/vendor/images-fill/imagefill.min.js")} />
 				<script src={path.resolve("./script/vendor/carousel/responsiveCarousel.min.js")} />
+                <script src={path.resolve('script/menu.js')} />
 				<script src={path.resolve("./script/custom.js")} />
 			</Helmet>
 		</>

@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql, Link, Image as Img } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Helmet from 'react-helmet'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,23 +11,27 @@ import Image from "../components/image"
 export default ( { pageContext } ) => {
     const datas = useStaticQuery(graphql`
         query ($agent: String){
-            agt: wordpressWpAgent(slug: {eq: $agent}) {
-                title
-                slug
-                featured_media {
-                    localFile {
-                      childImageSharp {
-                        fluid (maxWidth: 354, maxHeight: 250){
-                          ...GatsbyImageSharpFluid
+            agt: allWordpressWpAgent(filter: {slug: {eq: $agent}}) {
+                edges {
+                  node {
+                        title
+                        slug
+                        featured_media {
+                            localFile {
+                            childImageSharp {
+                                fluid (maxWidth: 354, maxHeight: 250){
+                                ...GatsbyImageSharpFluid
+                                }
+                            }
+                            }
                         }
-                      }
-                    }
-                }
-                acf {
-                    bio
-                    social_agent {
-                      type
-                      value
+                        acf {
+                            bio
+                            social_agent {
+                            type
+                            value
+                            }
+                        }
                     }
                 }
             }
@@ -72,13 +76,19 @@ export default ( { pageContext } ) => {
 	const path = require('path')
     const { data } = pageContext
     const { details } = datas.allWordpressAcfOptions.edges[0].node.options
-    const agt = datas.agt
+    // const agt = datas.agt.edges
     // const gallery = (datas.gallery !== null ? datas.gallery.acf.gallery : datas.gallery)
     const gallery = ((data.acf && data.acf.gallery !== null) ? data.acf.gallery : null)
     // console.log(data.acf?.gallery)
     // console.log(gallery)
     // console.log(datas.gallery.acf)
     // console.log(datas.gallery)
+    // console.log(data.acf.agent_name.post_name)
+    const agt = datas.agt.edges.filter(ag => {
+        // console.log(ag.node.slug)
+			return (ag.node.slug === data.acf.agent_name.post_name)
+    })
+    // console.log(agt[0].node.title)
     const detailOn = []
 
     details.forEach(( allDetail ) => {
@@ -99,11 +109,17 @@ export default ( { pageContext } ) => {
     for(const [ key, value ] of Object.entries(detailOn)){
         array.push({label: key, "value": value.value})
     }
+    // console.log(data)
     
     return (
         <>
 			<Layout>
-				<SEO title={`property ${data.title} | ${data.acf.cities[0].value}`} />
+				<SEO 
+                    title={`property ${data.title} | ${data.acf.cities[0].value}`}
+                    description={`There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.`}
+                    image={data?.featured_media?.localFile?.url}
+                    article={false}
+                />
                 <section id="property-content" className="header-margin-dual-line">
 
                     <div className="container">
@@ -154,22 +170,21 @@ export default ( { pageContext } ) => {
                                 <div className="agent-box-card grey hidden-xs hidden-sm">
                                     <div className="image-content">
                                         <div className="image image-fill">
-                                            <Image data={agt?.featured_media?.localFile}/>
-                                            {/* <img alt="Image Sample" src="http://placehold.it/512/bbbbbb/ffffff"/> */}
+                                            <Image data={agt[0].node?.featured_media?.localFile}/>
                                         </div>						
                                     </div>
                                     <div className="info-agent">
-                                        <span className="name"> { agt.title } </span>
-                                        <div className="text">{ agt.acf.bio }</div>
+                                        <span className="name"> { agt[0].node.title } </span>
+                                        <div className="text">{ agt[0].node.acf.bio }</div>
                                         <ul className="contact">
-                                        { agt?.acf.social_agent.map((sc, i) => (
-                                            <li key={i}>
-                                                <a className="icon" href={`${sc.type === 'envelope-o' ? `malito:` : ``}${sc.value}`}>
-                                                    <i className={`fa fa-${sc.type}`}></i>
-                                                </a>
-                                            </li>
-                                        ))}
-                                        <li><Link className="icon" to={`/agent/${agt.slug}`}><i className="fa fa-info-circle"></i></Link></li>
+                                            { agt[0].node?.acf.social_agent.map((sc, i) => (
+                                                <li key={i}>
+                                                    <Link className="icon" to={`${sc.type === 'envelope-o' ? `malito:` : ``}${sc.value}`}>
+                                                        <i className={`fa fa-${sc.type}`}></i>
+                                                    </Link>
+                                                </li>
+                                            ))}
+                                            <li><Link className="icon" to={`/agent/${agt[0].node.slug}`}><i className="fa fa-info-circle"></i></Link></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -219,7 +234,8 @@ export default ( { pageContext } ) => {
 				<script src={path.resolve('script/vendor/noui-slider/nouislider.all.min.js')} />
 				<script src={path.resolve('script/vendor/carousel/responsiveCarousel.min.js')} />
 				<script src={path.resolve('script/custom.js')} />
-                {/* <script	src="http://maps.google.com/maps/api/js?sensor=false"></script>
+                <script src={path.resolve('script/menu.js')} />
+                {/* <script	src="http://maps.google.com/maps/api/js?sensor=false" />
 				<script src={path.resolve('script/map.js')} /> */}
                 
 			</Helmet>

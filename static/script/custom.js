@@ -15,9 +15,7 @@
 		$(this).scrollTop() > 170 ? $headerFixed.css({'top': -($headerHeight-$menuHeight)+'px'}) 
 		: $headerFixed.css({'top': '0px'}) ;
 		
-		// menu acordeon
-		var $blockMenuFixed = $('#block-menu');
-		$(this).scrollTop() > 400 ? $blockMenuFixed.addClass('affix') : $blockMenuFixed.removeClass('affix')
+		
     });
 
 
@@ -26,16 +24,17 @@
 
 	/* MENU RESPONSIVE
 	============================================== */
-	$(function() {
-		var $menu = $("#navigation").clone();
-		$menu.attr( "id", "mobile-menu" );
-		$menu.mmenu({
-			extensions	: [ 'effect-slide', 'pageshadow' ],
-			header		: true,
-			searchfield	: false,
-			counters	: false
-		});
-	});
+	// $(function() {
+	// 	const $menu = $("#navigation").clone();
+	// 	$menu.attr( "id", "mobile-menu" );
+	// 	console.log('menu')
+	// 	$menu.mmenu({
+	// 		extensions	: [ 'effect-slide', 'pageshadow' ],
+	// 		header		: true,
+	// 		searchfield	: false,
+	// 		counters	: false
+	// 	});
+	// });
 
 
 
@@ -79,13 +78,13 @@
 			autoRotate : 7000,
 			speed: 1000
 		});
-		$('.my-property', '#agent-page').carousel({
-			visible: 4,
-			itemMinWidth: 260,
-			itemMargin: 20,
-			autoRotate : 7000,
-			speed: 1000
-		});
+		// $('.my-property', '#agent-page').carousel({
+		// 	visible: 4,
+		// 	itemMinWidth: 260,
+		// 	itemMargin: 20,
+		// 	autoRotate : 7000,
+		// 	speed: 1000
+		// });
 	});
 
 

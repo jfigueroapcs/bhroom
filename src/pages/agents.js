@@ -83,31 +83,9 @@ export default () => {
                             )}
                         </div>
                     </div>
-
-                    {/* <div className="container" id="pagination">
-                        <div className="row">
-                            <div className="col-md-12 text-center">
-                                <ul className="pagination">
-                                    <li><a href="#"><i className="fa fa-chevron-left"></i></a></li>
-                                    <li><a href="#" className="active">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a className="no-active">...</a></li>
-                                    <li><a href="#">9</a></li>
-                                    <li><a href="#"><i className="fa fa-chevron-right"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> */}
-
                 </section>
             </Layout>
             <Helmet>
-                <style>{`
-                    .agent-box-card .info-agent .contact li {
-                        width: 25%;
-                    }
-                `}</style>
                 <script src={path.resolve('script/jquery.min.js')} />
                 <script src={path.resolve('script/jquery-ui.min.js')} />
                 <script src={path.resolve('script/bootstrap.min.js')} />
@@ -117,9 +95,9 @@ export default () => {
                 <script src={path.resolve('script/vendor/parallax/parallax.min.js')} />
                 <script src={path.resolve('script/vendor/images-fill/imagesloaded.min.js')} />
                 <script src={path.resolve('script/vendor/images-fill/imagefill.min.js')} />
-                <script src={path.resolve('script/vendor/carousel/responsiveCarousel.min.js')} />
-                <script src={path.resolve('script/vendor/skill-bars/custom.js')} />
-                <script src={path.resolve('script/custom.js')} />
+                <script src={path.resolve('script/menu.js')} />
+                {/* <script src={path.resolve('script/vendor/carousel/responsiveCarousel.min.js')} /> */}
+                {/* <script src={path.resolve('script/custom.js')} /> */}
             </Helmet>
         </>
     )

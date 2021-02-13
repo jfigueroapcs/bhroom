@@ -169,6 +169,7 @@ export const Base = ({ data, pros, children, defaults }) => {
 				<script src={path.resolve('script/vendor/images-fill/imagesloaded.min.js')} />
 				<script src={path.resolve('script/vendor/images-fill/imagefill.min.js')} />
 				<script src={path.resolve('script/vendor/carousel/responsiveCarousel.min.js')} />
+                <script src={path.resolve('script/menu.js')} />
 				<script src={path.resolve('script/custom.js')} />
 			</Helmet>
 		</>

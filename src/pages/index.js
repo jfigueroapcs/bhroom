@@ -185,6 +185,14 @@ export default () => {
                   value
                   label
                 }
+                bathroom {
+                  value
+                  label
+                }
+                bedroom {
+                  value
+                  label
+                }
               }
             }
           }
@@ -203,6 +211,8 @@ export default () => {
                     purposes={ data.allWordpressAcfOptions.edges[0].node.options.purpose }
                     types={ data.allWordpressAcfOptions.edges[0].node.options.type }
                     statuses={ data.allWordpressAcfOptions.edges[0].node.options.status }
+                    bathrooms={ data.allWordpressAcfOptions.edges[0].node.options.bathroom }
+                    bedrooms={ data.allWordpressAcfOptions.edges[0].node.options.bedroom }
                 />
                 <RecentlyAdded
                     property={ data.allWordpressWpProperties.edges }
@@ -224,6 +234,8 @@ export default () => {
                 <script src="script/vendor/images-fill/imagefill.min.js" />
                 <script src="script/vendor/carousel/responsiveCarousel.min.js" />
                 <script src="script/custom.js" />
+                <script src="script/menu.js" />
+                
             </Helmet>
         </>
     )

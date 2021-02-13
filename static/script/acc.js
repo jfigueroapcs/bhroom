@@ -25,3 +25,10 @@ $(document).ready(function() {
         e.preventDefault();
     });
 });
+
+$(window).scroll(function() {
+    // menu acordeon
+    var $blockMenuFixed = $('#block-menu');
+    $(this).scrollTop() > 400 ? $blockMenuFixed.addClass('affix') : $blockMenuFixed.removeClass('affix')
+});
+

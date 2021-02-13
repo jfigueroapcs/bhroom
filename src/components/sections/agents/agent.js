@@ -29,12 +29,12 @@ export default ( {agt} ) => {
                     <ul className="contact">
                         { agt?.node?.acf.social_agent.map((sc, i) => (
                             <li key={i}>
-                                <a className="icon" href={`${sc.type === 'envelope-o' ? `malito:` : ``}${sc.value}`}>
+                                <Link className="icon" to={`${sc.type === 'envelope-o' ? `malito:` : ``}${sc.value}`}>
                                     <i className={`fa fa-${sc.type}`}></i>
-                                </a>
+                                </Link>
                             </li>
                         ))}
-                        <li><Link className="icon" to={`/agent/${agt.node.slug}`}><i className="fa fa-info-circle"></i></Link></li>
+                        <li><Link className="icon" to={`/agent/${agt.node.slug}/`}><i className="fa fa-info-circle"></i></Link></li>
                     </ul>
                 </div>
             </div>

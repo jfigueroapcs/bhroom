@@ -63,8 +63,7 @@ export default () => {
                     <div id="breadcrumb">
                         <div className="container">
                             <ol className="breadcrumb">
-                                <li><a href="#"><i className="fa fa-home"></i></a></li>
-                                <li><a href="#">Pages</a></li>
+                                <li><Link to="/"><i className="fa fa-home"></i></Link></li>
                                 <li className="active">Faq</li>
                             </ol>
                         </div>
@@ -78,7 +77,7 @@ export default () => {
                                 <div className="section-title line-style no-margin">
                                     <h3 className="title">Menu Faq list</h3>
                                 </div>
-                                <ul className="block-menu" id="block-menu" data-spy="affix" data-offset-top="500" data-offset-bottom="400">
+                                <ul className="block-menu" id="block-menu" data-spy="affix" data-offset-to="500" data-offset-bottom="400">
                                     { options?.basics ? <li><a className="faq-button active" href="#basic"><i className="icon fa fa-life-ring"></i> Basics</a></li> : null}
                                     { options?.account ? <li><a className="faq-button" href="#account"><i className="icon fa fa-child"></i> Account</a></li> : null}
                                     { options?.property ? <li><a className="faq-button" href="#property"><i className="icon fa fa-home"></i> Property</a></li> : null}
@@ -153,9 +152,11 @@ export default () => {
                 <script src={path.resolve('script/vendor/images-fill/imagesloaded.min.js')} />
                 <script src={path.resolve('script/vendor/images-fill/imagefill.min.js')} />
                 <script src={path.resolve('script/vendor/easydropdown/jquery.easydropdown.min.js')} />
+                <script src={path.resolve('script/vendor/carousel/responsiveCarousel.min.js')} />
                 <script src={path.resolve('script/custom.js')} />
+                <script src={path.resolve('script/menu.js')} />
                 <script src={path.resolve('script/acc.js')} />
-            </Helmet>+
+            </Helmet>
         </>
     )
 }
@@ -163,7 +164,7 @@ export default () => {
 export const FaqList = ({item, name}) => {
     return (
         <div className="accordion-box">
-            <a data-target={`#acc-${name}`} href="#" className={`title ${name === 'basics-0' ? 'active' : ''}`}>{item.title}</a>
+            <Link data-target={`#acc-${name}`} to="#" className={`title ${name === 'basics-0' ? 'active' : ''}`}>{item.title}</Link>
             <div className={`text-container ${name === 'basics-0' ? 'open' : ''}`} id={`acc-${name}`}>
                 <p>{item.description}</p>
             </div>
