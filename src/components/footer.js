@@ -1,9 +1,24 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import Image from "./image"
 import "../styles/template/footer.css"
 
 export default ({ LogoFooter }) => {
+	const data = useStaticQuery(graphql`
+	query {
+		wordpressAcfOptions {
+		  options {
+			social {
+			  type
+			  value
+			}
+		  }
+		}
+	  }
+	`)
+	// 
+    const { social } = data.wordpressAcfOptions.options
+
     return (
 		<>
 			<footer id="footer-page" className="section-color" style={{ marginTop: `2rem` }}>
@@ -60,18 +75,7 @@ export default ({ LogoFooter }) => {
 						</div>
 						<div className="col-md-6">
 							<ul className="social-icons">
-								<li>
-									<Link to="#"><i className="fa fa-facebook"></i></Link>
-								</li>
-								<li>
-									<Link to="#"><i className="fa fa-twitter"></i></Link>
-								</li>
-								<li>
-									<Link to="#"><i className="fa fa-google-plus"></i></Link>
-								</li>
-								<li>
-									<Link to="#"><i className="fa fa-linkedin"></i></Link>
-								</li>
+								{ social.map((sc, i) => <SocialIcons item={sc} key={i} />)}
 							</ul>
 						</div>
 					</div>
@@ -159,5 +163,16 @@ export default ({ LogoFooter }) => {
 				</div>
 			</div>
 		</>
+    )
+}
+
+export const SocialIcons = ({item}) => {
+    // console.log('item', item)
+    return(
+        <li>
+            <Link className="icon" to={`${item.type === 'envelope-o' ? `malito:` : ``}${item.value}`}>
+                <i className={`fa fa-${item.type}`}></i>
+            </Link>
+        </li>
     )
 }

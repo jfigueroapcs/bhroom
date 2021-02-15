@@ -30,9 +30,9 @@ module.exports = {
          * The base URL of the WordPress site without the trailingslash and the protocol. This is required.
          * Example : 'demo.wp-api.org' or 'www.example-site.com'
          */
-        baseUrl: "http://localhost/bhoomimantra",
+        baseUrl: "https://happystoreweb.com/bhoomimantra",
         // The protocol. This can be http or https.
-        protocol: "http",
+        protocol: "https",
         // The rest api route prefix that your WordPress site is using.
         // Sometimes this is modified by WordPress plugins.
         // If not set, it uses the default of "wp-json"
@@ -89,7 +89,7 @@ module.exports = {
         perPage: 100,
         // Search and Replace Urls across WordPress content.
         searchAndReplaceContentUrls: {
-          sourceUrl: "http://localhost/bhoomimantra",
+          sourceUrl: "https://happystoreweb.com/bhoomimantra",
           // replacementUrl: "https://localhost:8000",
         },
         // Set how many simultaneous requests are sent at once.
