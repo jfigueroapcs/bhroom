@@ -223,9 +223,9 @@ export default () => {
                 <Project project={ project } />
             </Layout>
             <Helmet>
-                <script src='script/jquery.min.js' async defer />
-                <script src="script/jquery-ui.min.js" async defer />
-                <script src="script/bootstrap.min.js" async defer />
+                <script src='script/jquery.min.js' />
+                <script src="script/jquery-ui.min.js" />
+                <script src="script/bootstrap.min.js" />
                 <script src="script/vendor/mmenu/mmenu.min.all.js" async defer />
                 <script src="script/vendor/animation-wow/wow.min.js" async defer />
                 <script src="script/vendor/labelauty/labelauty.min.js" async defer />
