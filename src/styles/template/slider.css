@@ -78,7 +78,7 @@ transition: 0.3s all ease-in-out;
 -webkit-transition: 0.3s all ease-in-out;
 }
 .home-slider .home-slider-nav a:hover {
-background-color: rgba(31, 183, 166, 0.6) !important;
+background-color: rgba(251, 208, 15, 0.6) !important;
 -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@opacity-ie)";
 opacity: 0.95;
 -moz-opacity: 0.95;

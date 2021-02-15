@@ -20,7 +20,7 @@ transition: 0.3s all ease-in-out;
 }
 .fixed-button {
 color: rgba(255, 255, 255, 0.5) !important;
-background-color: rgb(158 157 154 / 45%);
+background-color: rgb(251 208 15 / 45%);
 position: fixed;
 bottom: 66px;
 right: 10px;
@@ -46,7 +46,7 @@ right: 10px;
 }
 .fixed-button:hover {
 color: #ffffff !important;
-background-color: #188b7e;
+background-color: rgb(251, 208, 15);
 }
 .fixed-button:after {
 content: "";
@@ -60,10 +60,10 @@ right: -6px;
 bottom: auto;
 left: auto;
 z-index: 1;
-border-left: 6px solid rgba(24, 139, 126, 0.5);
+border-left: 6px solid rgba(251, 208, 15, 0.5);
 }
 .fixed-button:hover:after {
-border-left-color: #188b7e;
+border-left-color: rgb(251 208 15);
 }
 .form-control {
 border: 1px solid #e5e5e5;

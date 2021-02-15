@@ -43,10 +43,11 @@ export default ({ LogoFooter }) => {
 					<div className="hidden-xs hidden-sm col-md-3">
 						<span className="title">Sections</span>
 						<ul className="link-extra">
-							<li><Link to="#">Properties</Link></li>
-							<li><Link to="#">Agents</Link></li>
-							<li><Link to="#">Contact</Link></li>
-							<li><Link to="#">FAQ</Link></li>
+							<li><Link to="/about-us">About</Link></li>
+							<li><Link to="/properties">Properties</Link></li>
+							<li><Link to="/agents">Agents</Link></li>
+							<li><Link to="/faq">FAQ</Link></li>
+							<li><Link to="/">Contact</Link></li> 
 						</ul>
 					</div>
 					<div className="col-sm-6 col-md-3">

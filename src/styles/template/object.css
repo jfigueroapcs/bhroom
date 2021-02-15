@@ -801,7 +801,7 @@ border: 8px solid rgba(255, 255, 255, 0.4);
 content: "";
 }
 .hover-effect .cover {
-background-color: rgba(31, 183, 166, 0.3);
+background-color: rgba(251, 208, 15, 0.3);
 border: 8px solid rgba(255, 255, 255, 0);
 font-size: 40px;
 text-align: center;
@@ -853,7 +853,7 @@ color: #fbd00f;
 }
 .hover-effect .cover-title {
 height: 30px;
-background-color: rgba(31, 183, 166, 0.8);
+background-color: rgba(251, 208, 15, 0.8);
 text-align: center;
 padding-top: 2px;
 color: #ffffff;

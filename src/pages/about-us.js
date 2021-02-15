@@ -22,12 +22,8 @@ export default () => {
                 featured_media {
                     localFile {
                         childImageSharp {
-                            fluid {
-                                aspectRatio
-                                base64
-                                sizes
-                                src
-                                srcSet
+                            fluid (maxWidth: 680){
+                                ...GatsbyImageSharpFluid
                             }
                         }
                     }
@@ -90,7 +86,7 @@ export default () => {
     const data = page.wordpressPage
     const { social } = page.wordpressAcfOptions.options
     const {background, counters_page} = data.acf
-    // console.log(page)
+    console.log(page)
     return (
         <>
         <Layout>
@@ -125,7 +121,7 @@ export default () => {
                 <div className="container">
                 <div className="row">
                     <div className="col-md-12 director-image">
-                        <Image data={data?.featured_media?.localFile} />
+                        <Image data={data?.featured_media?.localFile} clas='img-responsive center-block' />
                     {/* <img
                         src="http://placehold.it/680x240/bbbbbb/ffffff"
                         alt="Image sample"
@@ -195,6 +191,9 @@ export default () => {
                     margin-top: -20px;
                     background: url(${background.localFile.url});
                     background-size: cover;
+                }
+                .col-md-12.director-image > div {
+                    max-width: 680px;
                 }
             `}</style>
                 <script src={path.resolve('script/jquery.min.js')} async defer />
