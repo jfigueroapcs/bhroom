@@ -86,18 +86,18 @@ export default () => {
                 </section>
             </Layout>
             <Helmet>
-                <script src={path.resolve('script/jquery.min.js')} />
-                <script src={path.resolve('script/jquery-ui.min.js')} />
-                <script src={path.resolve('script/bootstrap.min.js')} />
-                <script src={path.resolve('script/vendor/mmenu/mmenu.min.all.js')} />
-                <script src={path.resolve('script/vendor/animation-wow/wow.min.js')} />
-                <script src={path.resolve('script/vendor/labelauty/labelauty.min.js')} />
-                <script src={path.resolve('script/vendor/parallax/parallax.min.js')} />
-                <script src={path.resolve('script/vendor/images-fill/imagesloaded.min.js')} />
-                <script src={path.resolve('script/vendor/images-fill/imagefill.min.js')} />
-                <script src={path.resolve('script/menu.js')} />
-                {/* <script src={path.resolve('script/vendor/carousel/responsiveCarousel.min.js')} /> */}
-                {/* <script src={path.resolve('script/custom.js')} /> */}
+                <script src={path.resolve('script/jquery.min.js')} async defer />
+                <script src={path.resolve('script/jquery-ui.min.js')} async defer />
+                <script src={path.resolve('script/bootstrap.min.js')} async defer />
+                <script src={path.resolve('script/vendor/mmenu/mmenu.min.all.js')} async defer />
+                <script src={path.resolve('script/vendor/animation-wow/wow.min.js')} async defer />
+                <script src={path.resolve('script/vendor/labelauty/labelauty.min.js')} async defer />
+                <script src={path.resolve('script/vendor/parallax/parallax.min.js')} async defer />
+                <script src={path.resolve('script/vendor/images-fill/imagesloaded.min.js')} async defer />
+                <script src={path.resolve('script/vendor/images-fill/imagefill.min.js')} async defer />
+                <script src={path.resolve('script/menu.js')} async defer />
+                {/* <script src={path.resolve('script/vendor/carousel/responsiveCarousel.min.js')} /> async defer */}
+                {/* <script src={path.resolve('script/custom.js')} /> async defer */}
             </Helmet>
         </>
     )

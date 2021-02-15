@@ -248,25 +248,22 @@ export default ( { data } ) => {
                         width: 25%;
                     }
                 `}</style>
-                <script src={path.resolve('script/jquery.min.js')} />
-                <script src={path.resolve('script/jquery-ui.min.js')} />
-                <script src={path.resolve('script/bootstrap.min.js')} />
-
-                <script src={path.resolve('script/vendor/mmenu/mmenu.min.all.js')} />
-                <script src={path.resolve('script/vendor/animation-wow/wow.min.js')} />
-                <script src={path.resolve('script/vendor/labelauty/labelauty.min.js')} />
-                <script src={path.resolve('script/vendor/parallax/parallax.min.js')} />
-                <script src={path.resolve('script/vendor/images-fill/imagesloaded.min.js')} />
-                <script src={path.resolve('script/vendor/images-fill/imagefill.min.js')} />
-                <script src={path.resolve('script/vendor/easydropdown/jquery.easydropdown.min.js')} />
-
-                <script src={path.resolve('script/vendor/carousel/responsiveCarousel.min.js')} />
-                {/* <script src={path.resolve('script/vendor/noui-slider/nouislider.all.min.js')} /> */}
-                <script src={path.resolve('script/vendor/skill-bars/custom.js')} />
-                
-                <script src={path.resolve('script/custom.js')} />
-                <script src={path.resolve('script/menu.js')} />
-                <script src={path.resolve('script/singleAgent.js')} />
+                <script src={path.resolve('script/jquery.min.js')} async defer />
+                <script src={path.resolve('script/jquery-ui.min.js')} async defer />
+                <script src={path.resolve('script/bootstrap.min.js')} async defer />
+                <script src={path.resolve('script/vendor/mmenu/mmenu.min.all.js')} async defer />
+                <script src={path.resolve('script/vendor/animation-wow/wow.min.js')} async defer />
+                <script src={path.resolve('script/vendor/labelauty/labelauty.min.js')} async defer />
+                <script src={path.resolve('script/vendor/parallax/parallax.min.js')} async defer />
+                <script src={path.resolve('script/vendor/images-fill/imagesloaded.min.js')} async defer />
+                <script src={path.resolve('script/vendor/images-fill/imagefill.min.js')} async defer />
+                <script src={path.resolve('script/vendor/easydropdown/jquery.easydropdown.min.js')} async defer />
+                <script src={path.resolve('script/vendor/carousel/responsiveCarousel.min.js')} async defer />
+                {/* <script src={path.resolve('script/vendor/noui-slider/nouislider.all.min.js')} /> async defer */}
+                <script src={path.resolve('script/vendor/skill-bars/custom.js')} async defer />
+                <script src={path.resolve('script/custom.js')} async defer />
+                <script src={path.resolve('script/menu.js')} async defer />
+                <script src={path.resolve('script/singleAgent.js')} async defer />
 
                 
             </Helmet>
